@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Poppins } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 
-const bebas = Bebas_Neue({
-  weight: "400",
+const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-bebas",
-});
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-poppins",
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -26,9 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body
-        className={`${bebas.variable} ${poppins.variable} font-sans bg-[#f5f5f5]`}
-      >
+      <body className={`${montserrat.className} bg-[#f5f5f5]`}>
         {children}
       </body>
     </html>
