@@ -56,6 +56,7 @@ export default function RifaDemo() {
     const { data, error } = await supabase
       .from("tickets")
       .select("*")
+      .order("numero", { ascending: true })
       .limit(100);
 
     if (error) {
