@@ -68,73 +68,79 @@ async function obtenerPorcentaje() {
 
           <div className="grid grid-cols-2 gap-4">
 
+            {/* VALOR */}
             <div className="bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
-              <p className="text-zinc-500 font-semibold">
+                <p className="text-zinc-500 font-semibold">
                 Valor Ticket
-              </p>
+                </p>
 
-              <h2 className="text-4xl font-black text-green-600 mt-2">
+                <h2 className="text-4xl font-black text-green-600 mt-2">
                 $30K
-              </h2>
+                </h2>
             </div>
 
+            {/* SORTEO */}
             <div className="bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
-              <p className="text-zinc-500 font-semibold">
+                <p className="text-zinc-500 font-semibold">
                 Sorteo
-              </p>
+                </p>
 
-              <h2 className="text-3xl font-black text-green-600 mt-2">
+                <h2 className="text-4xl font-black text-green-600 mt-2">
                 Hoy
-              </h2>
+                </h2>
             </div>
-                <div className="bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
 
-            <div className="flex justify-between items-center mb-4">
+            {/* BARRA LARGA */}
+            <div className="col-span-2 bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
 
-                <h3 className="text-xl font-black text-black">
-                Tickets vendidos
+                <div className="flex justify-between items-center mb-4">
+
+                <h3 className="text-3xl font-black text-black">
+                    Tickets vendidos
                 </h3>
 
-                <span className="text-green-600 font-black text-2xl">
-                {porcentaje}%
+                <span className="text-green-600 font-black text-3xl">
+                    {porcentaje}%
                 </span>
 
-            </div>
+                </div>
 
-            <div className="w-full h-5 bg-zinc-200 rounded-full overflow-hidden">
+                <div className="w-full h-6 bg-zinc-200 rounded-full overflow-hidden">
 
                 <div
-                className="h-full bg-green-500 transition-all duration-700"
-                style={{
+                    className="h-full bg-green-500 transition-all duration-700 rounded-full"
+                    style={{
                     width: `${porcentaje}%`,
-                }}
+                    }}
                 />
 
-            </div>
+                </div>
 
             </div>
 
+            {/* MODALIDAD */}
             <div className="bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
-              <p className="text-zinc-500 font-semibold">
+                <p className="text-zinc-500 font-semibold">
                 Modalidad
-              </p>
+                </p>
 
-              <h2 className="text-3xl font-black text-green-600 mt-2">
+                <h2 className="text-4xl font-black text-green-600 mt-2">
                 Aleatorio
-              </h2>
+                </h2>
             </div>
 
+            {/* PREMIO */}
             <div className="bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
-              <p className="text-zinc-500 font-semibold">
+                <p className="text-zinc-500 font-semibold">
                 Premio
-              </p>
+                </p>
 
-              <h2 className="text-2xl font-black text-green-600 mt-2">
+                <h2 className="text-3xl font-black text-green-600 mt-2">
                 Honda + iPhone
-              </h2>
+                </h2>
             </div>
 
-          </div>
+            </div>
 
           <div className="bg-[#111827] rounded-3xl p-10 text-center">
 
