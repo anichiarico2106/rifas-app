@@ -1,4 +1,37 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Packages() {
+    const paquetes = [
+  {
+    tickets: 1,
+    numeros: 3,
+    valor: 30000,
+  },
+  {
+    tickets: 2,
+    numeros: 6,
+    valor: 60000,
+  },
+  {
+    tickets: 3,
+    numeros: 9,
+    valor: 90000,
+  },
+  {
+    tickets: 5,
+    numeros: 15,
+    valor: 150000,
+  },
+  {
+    tickets: 10,
+    numeros: 30,
+    valor: 300000,
+  },
+];
+
+const [seleccionado, setSeleccionado] = useState<any>(null);
   return (
     <section
       id="packages"
@@ -15,21 +48,24 @@ export default function Packages() {
 
           <div className="grid md:grid-cols-2 gap-6">
 
-            {[3, 5, 10, 20, 50].map((item) => (
+            {paquetes.map((item) => (
 
-              <div
-                key={item}
-                className="border-2 border-zinc-200 hover:border-yellow-500 transition-all rounded-3xl p-8 cursor-pointer bg-[#fafafa]"
-              >
-
-                <h3 className="text-5xl font-black text-black">
-                  {item}
+                <div
+                key={item.tickets}
+                onClick={() => setSeleccionado(item)}
+                className={`border-2 transition-all rounded-3xl p-8 cursor-pointer ${
+                    seleccionado?.tickets === item.tickets
+                    ? "bg-green-500 border-green-500 text-white"
+                    : "border-zinc-200 hover:border-yellow-500 bg-[#fafafa]"
+                }`}
+                >
+                <h3 className="text-3xl font-black">
+                {item.tickets} Ticket = {item.numeros} números
                 </h3>
 
-                <p className="text-black mt-3 text-xl font-semibold">
-                  ${(item * 30000).toLocaleString("es-CO")}
+                <p className="mt-3 text-lg font-semibold">
+                ${item.valor.toLocaleString("es-CO")}
                 </p>
-
               </div>
 
             ))}
@@ -53,7 +89,7 @@ export default function Packages() {
               </span>
 
               <span>
-                0
+                {seleccionado ? seleccionado.tickets : 0}
               </span>
 
             </div>
@@ -65,7 +101,9 @@ export default function Packages() {
               </span>
 
               <span>
-                $0
+                {seleccionado
+                    ? `$${seleccionado.valor.toLocaleString("es-CO")}`
+                    : "$0"}
               </span>
 
             </div>
