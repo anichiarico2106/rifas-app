@@ -5,8 +5,16 @@ import { supabase } from "./lib/supabase";
 
 export default function RifaDemo() {
   const [mostrarTickets, setMostrarTickets] = useState(false);
+
   const [numerosGenerados, setNumerosGenerados] = useState<string[]>([]);
+
   const [nombreCliente, setNombreCliente] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [cedula, setCedula] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [direccion, setDireccion] = useState("");
+  const [correo, setCorreo] = useState("");
+
   const [cantidadTickets, setCantidadTickets] = useState<number>(1);
 
   const totalNumeros = cantidadTickets * 3;
@@ -16,10 +24,9 @@ export default function RifaDemo() {
     const nuevosNumeros: string[] = [];
 
     while (nuevosNumeros.length < totalNumeros) {
-      const numero = String(Math.floor(Math.random() * 10000)).padStart(
-        4,
-        "0"
-      );
+      const numero = String(
+        Math.floor(Math.random() * 10000)
+      ).padStart(4, "0");
 
       if (!nuevosNumeros.includes(numero)) {
         nuevosNumeros.push(numero);
@@ -47,6 +54,7 @@ export default function RifaDemo() {
 
   return (
     <div className="min-h-screen bg-zinc-950 text-white p-6">
+
       <div className="max-w-3xl mx-auto">
 
         <div className="bg-zinc-900 rounded-3xl overflow-hidden shadow-2xl border border-zinc-800">
@@ -60,6 +68,7 @@ export default function RifaDemo() {
           <div className="p-6 space-y-6">
 
             <div>
+
               <p className="text-sm uppercase tracking-[4px] text-green-400">
                 Sorteo en vivo
               </p>
@@ -67,11 +76,13 @@ export default function RifaDemo() {
               <h1 className="text-4xl font-black mt-2 leading-tight">
                 Gana una HONDA PCX 160 y un iPhone 17 Pro Max
               </h1>
+
             </div>
 
             <div className="grid grid-cols-2 gap-4">
 
               <div className="bg-zinc-800 rounded-2xl p-5 border border-zinc-700">
+
                 <p className="text-zinc-400 text-sm">
                   Valor Ticket
                 </p>
@@ -83,9 +94,11 @@ export default function RifaDemo() {
                 <p className="text-xs text-zinc-500 mt-1">
                   Incluye 3 números aleatorios
                 </p>
+
               </div>
 
               <div className="bg-zinc-800 rounded-2xl p-5 border border-zinc-700">
+
                 <p className="text-zinc-400 text-sm">
                   Sorteo
                 </p>
@@ -93,9 +106,11 @@ export default function RifaDemo() {
                 <h2 className="text-2xl font-black mt-1">
                   Hoy 9PM
                 </h2>
+
               </div>
 
               <div className="bg-zinc-800 rounded-2xl p-5 border border-zinc-700">
+
                 <p className="text-zinc-400 text-sm">
                   Modalidad
                 </p>
@@ -103,9 +118,11 @@ export default function RifaDemo() {
                 <h2 className="text-2xl font-black mt-1">
                   Aleatoria
                 </h2>
+
               </div>
 
               <div className="bg-zinc-800 rounded-2xl p-5 border border-zinc-700">
+
                 <p className="text-zinc-400 text-sm">
                   Premio
                 </p>
@@ -113,46 +130,12 @@ export default function RifaDemo() {
                 <h2 className="text-2xl font-black mt-1">
                   HONDA + iPhone
                 </h2>
-              </div>
 
-            </div>
-
-            <div className="bg-green-500/10 border border-green-500/20 rounded-2xl p-5">
-
-              <p className="text-green-300 text-sm font-semibold">
-                🔥 Últimos movimientos
-              </p>
-
-              <div className="mt-3 space-y-2 text-sm text-zinc-300">
-                <p>
-                  {nombreCliente || "Cliente"} compró{" "}
-                  {cantidadTickets} ticket
-                  {cantidadTickets > 1 ? "s" : ""} (
-                  {totalNumeros} números)
-                </p>
-
-                <p>
-                  Kevin compró 2 tickets (6 números)
-                </p>
-
-                <p>
-                  Laura compró 4 tickets (12 números)
-                </p>
               </div>
 
             </div>
 
             <div className="space-y-4">
-
-              <input
-                type="text"
-                placeholder="Tu nombre"
-                value={nombreCliente}
-                onChange={(e) =>
-                  setNombreCliente(e.target.value)
-                }
-                className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl p-4 outline-none"
-              />
 
               <select
                 value={cantidadTickets}
@@ -161,6 +144,7 @@ export default function RifaDemo() {
                 }
                 className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl p-4 outline-none text-white"
               >
+
                 <option value={1}>
                   1 Ticket = 3 números • $30.000
                 </option>
@@ -180,7 +164,72 @@ export default function RifaDemo() {
                 <option value={10}>
                   10 Tickets = 30 números • $300.000
                 </option>
+
               </select>
+
+              <div className="grid md:grid-cols-2 gap-4">
+
+                <input
+                  type="text"
+                  placeholder="Nombre"
+                  value={nombreCliente}
+                  onChange={(e) =>
+                    setNombreCliente(e.target.value)
+                  }
+                  className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl p-4 outline-none"
+                />
+
+                <input
+                  type="text"
+                  placeholder="Apellido"
+                  value={apellido}
+                  onChange={(e) =>
+                    setApellido(e.target.value)
+                  }
+                  className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl p-4 outline-none"
+                />
+
+                <input
+                  type="text"
+                  placeholder="Cédula"
+                  value={cedula}
+                  onChange={(e) =>
+                    setCedula(e.target.value)
+                  }
+                  className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl p-4 outline-none"
+                />
+
+                <input
+                  type="text"
+                  placeholder="Teléfono"
+                  value={telefono}
+                  onChange={(e) =>
+                    setTelefono(e.target.value)
+                  }
+                  className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl p-4 outline-none"
+                />
+
+                <input
+                  type="text"
+                  placeholder="Dirección / Ciudad"
+                  value={direccion}
+                  onChange={(e) =>
+                    setDireccion(e.target.value)
+                  }
+                  className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl p-4 outline-none md:col-span-2"
+                />
+
+                <input
+                  type="email"
+                  placeholder="Correo electrónico"
+                  value={correo}
+                  onChange={(e) =>
+                    setCorreo(e.target.value)
+                  }
+                  className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl p-4 outline-none md:col-span-2"
+                />
+
+              </div>
 
               <button
                 onClick={generarNumeros}
@@ -196,6 +245,7 @@ export default function RifaDemo() {
                   <div className="flex items-center justify-between mb-4">
 
                     <div>
+
                       <p className="text-green-400 text-sm uppercase tracking-[3px]">
                         Compra confirmada
                       </p>
@@ -203,6 +253,7 @@ export default function RifaDemo() {
                       <h3 className="text-2xl font-black mt-1">
                         Tus números 🎟️
                       </h3>
+
                     </div>
 
                     <div className="bg-green-500 text-black px-3 py-1 rounded-xl font-bold text-sm">
@@ -232,7 +283,35 @@ export default function RifaDemo() {
                       <span className="text-zinc-500">
                         Cliente:
                       </span>{" "}
-                      {nombreCliente || "Cliente"}
+                      {nombreCliente} {apellido}
+                    </p>
+
+                    <p>
+                      <span className="text-zinc-500">
+                        Cédula:
+                      </span>{" "}
+                      {cedula}
+                    </p>
+
+                    <p>
+                      <span className="text-zinc-500">
+                        Teléfono:
+                      </span>{" "}
+                      {telefono}
+                    </p>
+
+                    <p>
+                      <span className="text-zinc-500">
+                        Dirección:
+                      </span>{" "}
+                      {direccion}
+                    </p>
+
+                    <p>
+                      <span className="text-zinc-500">
+                        Correo:
+                      </span>{" "}
+                      {correo}
                     </p>
 
                     <p>
@@ -265,13 +344,6 @@ export default function RifaDemo() {
 
                     <p>
                       <span className="text-zinc-500">
-                        Método:
-                      </span>{" "}
-                      Nequi
-                    </p>
-
-                    <p>
-                      <span className="text-zinc-500">
                         Estado:
                       </span>{" "}
                       Confirmado
@@ -290,6 +362,7 @@ export default function RifaDemo() {
         </div>
 
       </div>
+
     </div>
   );
 }
