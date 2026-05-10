@@ -27,7 +27,7 @@ export default function Hero() {
             <img
               src="/sorteo.png"
               alt="Premio"
-              className="w-full h-[500px] object-cover"
+              className="w-full h-auto md:h-[500px] object-contain md:object-cover"
             />
 
           </div>
@@ -53,8 +53,8 @@ export default function Hero() {
                 Sorteo
               </p>
 
-              <h2 className="text-3xl font-black text-[#111827] mt-2">
-                Medellín
+              <h2 className="text-3xl font-black text-green-600 mt-2">
+                Hoy
               </h2>
             </div>
 
@@ -63,8 +63,8 @@ export default function Hero() {
                 Modalidad
               </p>
 
-              <h2 className="text-3xl font-black text-[#111827] mt-2">
-                Viernes
+              <h2 className="text-3xl font-black text-green-600 mt-2">
+                Aleatorio
               </h2>
             </div>
 
@@ -73,7 +73,7 @@ export default function Hero() {
                 Premio
               </p>
 
-              <h2 className="text-2xl font-black text-[#111827] mt-2">
+              <h2 className="text-2xl font-black text-green-600 mt-2">
                 Honda + iPhone
               </h2>
             </div>
@@ -82,7 +82,7 @@ export default function Hero() {
 
           <div className="bg-[#111827] rounded-3xl p-10 text-center">
 
-            <h2 className="text-6xl font-black text-yellow-400">
+            <h2 className="text-6xl font-black text-green-600">
               $30.000
             </h2>
 
