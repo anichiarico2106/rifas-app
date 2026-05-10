@@ -1,76 +1,86 @@
-const packagesList = [
-  { cantidad: 3, precio: "$90.000" },
-  { cantidad: 5, precio: "$150.000" },
-  { cantidad: 10, precio: "$300.000" },
-  { cantidad: 20, precio: "$600.000" },
-  { cantidad: 50, precio: "$1.500.000" },
-];
-
 export default function Packages() {
   return (
     <section
       id="packages"
-      className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-3 gap-8"
+      className="max-w-7xl mx-auto px-6 pb-20"
     >
 
-      <div className="lg:col-span-2 bg-white rounded-3xl p-8 shadow border border-zinc-200">
+      <div className="grid lg:grid-cols-3 gap-6">
 
-        <h2 className="text-5xl font-black text-zinc-900 mb-10">
-          🎟️ Paquetes
-        </h2>
+        <div className="lg:col-span-2 bg-white rounded-3xl p-8 shadow-sm">
 
-        <div className="grid md:grid-cols-2 gap-6">
+          <h2 className="text-5xl font-black text-[#111827] mb-10">
+             Paquetes
+          </h2>
 
-          {packagesList.map((item, index) => (
+          <div className="grid md:grid-cols-2 gap-6">
 
-            <div
-              key={index}
-              className="border border-zinc-200 rounded-3xl p-8 hover:border-yellow-400 hover:shadow-xl transition-all cursor-pointer"
-            >
+            {[3, 5, 10, 20, 50].map((item) => (
 
-              <h3 className="text-5xl font-black text-zinc-900">
-                {item.cantidad}
-              </h3>
+              <div
+                key={item}
+                className="border-2 border-zinc-200 hover:border-yellow-500 transition-all rounded-3xl p-8 cursor-pointer bg-[#fafafa]"
+              >
 
-              <p className="text-zinc-500 mt-3 text-xl">
-                {item.precio}
-              </p>
+                <h3 className="text-5xl font-black text-black">
+                  {item}
+                </h3>
+
+                <p className="text-black mt-3 text-xl font-semibold">
+                  ${(item * 30000).toLocaleString("es-CO")}
+                </p>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+        <div className="bg-white rounded-3xl p-8 shadow-sm border border-zinc-200 h-fit sticky top-10">
+
+          <h3 className="text-4xl font-black mb-6 text-black">
+            Tu Compra
+          </h3>
+
+          <div className="border border-zinc-300 rounded-2xl overflow-hidden">
+
+            <div className="flex justify-between p-5 border-b border-zinc-300 text-black">
+
+              <span className="font-semibold">
+                Cantidad
+              </span>
+
+              <span>
+                0
+              </span>
 
             </div>
 
-          ))}
+            <div className="flex justify-between p-5 text-black text-2xl font-black">
 
-        </div>
+              <span>
+                Total
+              </span>
 
-      </div>
+              <span>
+                $0
+              </span>
 
-      <div className="bg-white rounded-3xl p-8 shadow border border-zinc-200 h-fit sticky top-10">
+            </div>
 
-        <h2 className="text-4xl font-black text-zinc-900">
-          Tu Compra
-        </h2>
-
-        <div className="mt-8 border border-zinc-200 rounded-2xl overflow-hidden">
-
-          <div className="flex justify-between p-5 border-b border-zinc-200">
-            <span>Cantidad</span>
-            <span>0</span>
           </div>
 
-          <div className="flex justify-between p-5 font-black text-2xl">
-            <span>Total</span>
-            <span>$0</span>
-          </div>
+          <button className="w-full mt-8 bg-[#111827] hover:bg-black transition-all text-white py-5 rounded-2xl font-black text-xl">
+            Pagar ahora →
+          </button>
+
+          <p className="text-center text-zinc-500 mt-6 font-medium">
+             Pagos 100% seguros
+          </p>
 
         </div>
-
-        <button className="w-full mt-8 bg-zinc-900 hover:bg-zinc-800 transition-all text-white py-5 rounded-2xl font-black text-xl">
-          Pagar ahora →
-        </button>
-
-        <p className="text-center text-zinc-500 mt-6">
-          🔒 Pagos 100% seguros
-        </p>
 
       </div>
 
