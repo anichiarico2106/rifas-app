@@ -8,7 +8,7 @@ export default function RifaDemo() {
   const [numerosGenerados, setNumerosGenerados] = useState<string[]>([]);
   const [nombreCliente, setNombreCliente] = useState("");
   const [cantidadTickets, setCantidadTickets] = useState<number>(1);
-
+  const [tickets, setTickets] = useState<any[]>([]);
   const vendidos = useMemo(
     () => [
       "0007",
@@ -25,11 +25,7 @@ export default function RifaDemo() {
     []
   );
 
-  const tickets = useMemo(() => {
-    return Array.from({ length: 100 }, (_, i) =>
-      String(i).padStart(4, "0")
-    );
-  }, []);
+
 
   const totalNumeros = cantidadTickets * 3;
   const valorCompra = cantidadTickets * 30000;
@@ -52,6 +48,22 @@ export default function RifaDemo() {
     setMostrarTickets(true);
   };
 
+  useEffect(() => {
+  obtenerTickets();
+  }, []);
+
+  const obtenerTickets = async () => {
+    const { data, error } = await supabase
+      .from("tickets")
+      .select("*")
+      .limit(100);
+
+    if (error) {
+      console.log(error);
+    } else {
+      setTickets(data);
+    }
+};
   return (
     <div className="min-h-screen bg-zinc-950 text-white p-6">
       <div className="max-w-7xl mx-auto">
@@ -239,22 +251,22 @@ export default function RifaDemo() {
             </div>
 
             <div className="grid grid-cols-5 md:grid-cols-10 gap-3">
-              {tickets.map((ticket) => {
-                const isSold = vendidos.includes(ticket);
-
-                return (
-                  <div
-                    key={ticket}
-                    className={`h-14 rounded-2xl flex items-center justify-center font-bold text-sm transition-all cursor-pointer ${
-                      isSold
-                        ? "bg-red-500/20 border border-red-500 text-red-300"
-                        : "bg-zinc-800 border border-zinc-700 hover:border-green-400 hover:bg-green-500/10"
-                    }`}
-                  >
-                    {ticket}
-                  </div>
-                );
-              })}
+              {tickets.map((ticket) => (
+                <div
+                  key={ticket.id}
+                  className={`h-14 w-14 rounded-2xl flex items-center justify-center font-bold text-sm border transition-all
+                    ${
+                      ticket.estado === "vendido"
+                        ? "bg-red-500/20 border-red-500 text-red-300"
+                        : ticket.estado === "reservado"
+                        ? "bg-yellow-500/20 border-yellow-500 text-yellow-300"
+                        : "bg-zinc-800 border-zinc-700 hover:border-green-400 hover:bg-green-500/10"
+                    }
+                  `}
+                >
+                  {ticket.numero}
+                </div>
+              ))}
             </div>
 
             <div className="mt-8 grid md:grid-cols-3 gap-4">
