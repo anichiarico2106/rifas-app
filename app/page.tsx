@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { supabase } from "./lib/supabase";
 
 export default function RifaDemo() {
   const [mostrarTickets, setMostrarTickets] = useState(false);
