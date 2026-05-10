@@ -145,11 +145,11 @@ async function obtenerPorcentaje() {
           <div className="bg-[#111827] rounded-3xl p-10 text-center">
 
             <h2 className="text-6xl font-black text-green-600">
-              $30.000
+              $10.000
             </h2>
 
             <p className="text-white mt-2 text-xl font-semibold">
-              POR BOLETA
+              POR NÚMERO
             </p>
 
             <a
