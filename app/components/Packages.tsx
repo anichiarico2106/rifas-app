@@ -43,7 +43,7 @@ const [seleccionado, setSeleccionado] = useState<any>(null);
         <div className="lg:col-span-2 bg-white rounded-3xl p-8 shadow-sm">
 
           <h2 className="text-5xl font-black text-[#111827] mb-10">
-             Paquetes
+             tickets
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6">

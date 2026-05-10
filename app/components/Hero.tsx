@@ -1,4 +1,34 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { supabase } from "../lib/supabase";
+
 export default function Hero() {
+    const [porcentaje, setPorcentaje] = useState(0);
+    useEffect(() => {
+  obtenerPorcentaje();
+}, []);
+
+async function obtenerPorcentaje() {
+
+  const { data, error } = await supabase
+    .from("tickets")
+    .select("estado");
+
+  if (error || !data) return;
+
+  const total = data.length;
+
+  const vendidos = data.filter(
+    (ticket) => ticket.estado === "vendido"
+  ).length;
+
+  const porcentajeCalculado = Math.round(
+    (vendidos / total) * 100
+  );
+
+  setPorcentaje(porcentajeCalculado);
+}
   return (
     <section className="max-w-7xl mx-auto px-6 py-10">
 
@@ -79,7 +109,32 @@ export default function Hero() {
             </div>
 
           </div>
+                <div className="bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
 
+            <div className="flex justify-between items-center mb-4">
+
+                <h3 className="text-xl font-black text-black">
+                Tickets vendidos
+                </h3>
+
+                <span className="text-green-600 font-black text-2xl">
+                {porcentaje}%
+                </span>
+
+            </div>
+
+            <div className="w-full h-5 bg-zinc-200 rounded-full overflow-hidden">
+
+                <div
+                className="h-full bg-green-500 transition-all duration-700"
+                style={{
+                    width: `${porcentaje}%`,
+                }}
+                />
+
+            </div>
+
+            </div>
           <div className="bg-[#111827] rounded-3xl p-10 text-center">
 
             <h2 className="text-6xl font-black text-green-600">
