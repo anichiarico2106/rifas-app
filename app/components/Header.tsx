@@ -18,9 +18,6 @@ export default function Header() {
               TU RIFA
             </h1>
 
-            <p className="text-yellow-400 font-bold text-sm uppercase tracking-[2px] mt-1">
-              Sorteos Premium
-            </p>
 
           </div>
 

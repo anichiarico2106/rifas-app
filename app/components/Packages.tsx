@@ -158,13 +158,6 @@ export default function Packages() {
 
           </div>
 
-          <div className="mt-6 bg-yellow-400/10 border border-yellow-400/20 rounded-2xl p-4">
-
-            <p className="text-yellow-300 text-center font-semibold">
-              🎉 Estás a un paso de participar
-            </p>
-
-          </div>
 
           <button className="w-full mt-8 bg-yellow-400 hover:bg-yellow-300 transition-all text-black py-5 rounded-2xl font-black text-xl shadow-lg hover:scale-[1.02]">
             Pagar ahora →
@@ -173,18 +166,10 @@ export default function Packages() {
           <div className="mt-8 pt-6 border-t border-zinc-700">
 
             <p className="text-center text-zinc-400 font-medium">
-              🔒 Pagos 100% seguros
+               Pagos 100% seguros
             </p>
 
             <div className="flex justify-center gap-3 mt-4">
-
-              <div className="bg-white rounded-xl px-4 py-2 text-black font-bold text-sm">
-                PSE
-              </div>
-
-              <div className="bg-white rounded-xl px-4 py-2 text-black font-bold text-sm">
-                VISA
-              </div>
 
               <div className="bg-white rounded-xl px-4 py-2 text-black font-bold text-sm">
                 Wompi

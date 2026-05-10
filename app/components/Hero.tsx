@@ -139,7 +139,7 @@ export default function Hero() {
                 Modalidad
               </p>
 
-              <h2 className="text-4xl font-black text-[#111827] mt-2">
+              <h2 className="text-4xl font-black text-yellow-500 mt-2">
                 Aleatorio
               </h2>
 
@@ -152,7 +152,7 @@ export default function Hero() {
                 Premio
               </p>
 
-              <h2 className="text-3xl font-black text-[#111827] mt-2">
+              <h2 className="text-3xl font-black text-green-600 mt-2">
                 Honda + iPhone
               </h2>
 
