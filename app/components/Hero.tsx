@@ -4,157 +4,180 @@ import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
 
 export default function Hero() {
-    const [porcentaje, setPorcentaje] = useState(0);
-    useEffect(() => {
-  obtenerPorcentaje();
-}, []);
 
-async function obtenerPorcentaje() {
+  const [porcentaje, setPorcentaje] = useState(0);
 
-  const { data, error } = await supabase
-    .from("tickets")
-    .select("estado");
+  useEffect(() => {
+    obtenerPorcentaje();
+  }, []);
 
-  if (error || !data) return;
+  async function obtenerPorcentaje() {
 
-  const total = data.length;
+    const { data, error } = await supabase
+      .from("tickets")
+      .select("estado");
 
-  const vendidos = data.filter(
-    (ticket) => ticket.estado === "vendido"
-  ).length;
+    if (error || !data) return;
 
-  const porcentajeCalculado = Math.round(
-    (vendidos / total) * 100
-  );
+    const total = data.length;
 
-  setPorcentaje(porcentajeCalculado);
-}
+    const vendidos = data.filter(
+      (ticket) =>
+        ticket.estado?.toLowerCase().trim() === "vendido"
+    ).length;
+
+    const porcentajeCalculado = Number(
+      ((vendidos / total) * 100).toFixed(1)
+    );
+
+    setPorcentaje(porcentajeCalculado);
+  }
+
   return (
     <section className="max-w-7xl mx-auto px-6 py-10">
 
       <div className="grid lg:grid-cols-2 gap-8 items-start">
 
+        {/* IZQUIERDA */}
         <div>
 
           <div>
+
+            <p className="text-yellow-500 font-black text-xl mb-3 uppercase tracking-[3px]">
+              Sorteo Premium
+            </p>
 
             <h1 className="text-6xl font-black text-[#111827] leading-tight">
               ¡GANA UNA
             </h1>
 
-            <h1 className="text-6xl font-black text-[#111827] leading-tight">
+            <h1 className="text-6xl font-black text-yellow-500 leading-tight">
               HONDA PCX 160!
             </h1>
 
           </div>
 
-          <p className="text-2xl text-zinc-600 font-medium mt-4">
+          <p className="text-2xl text-zinc-600 font-medium mt-5 leading-relaxed">
             Participa ahora y recibe números totalmente aleatorios.
           </p>
 
-          <div className="bg-[#111827] text-white rounded-3xl overflow-hidden shadow-xl mt-8">
+          <div className="bg-[#0f172a] rounded-3xl overflow-hidden shadow-2xl mt-8 border border-zinc-800">
 
             <img
               src="/sorteo.png"
               alt="Premio"
-              className="w-full h-auto max-h-[500px] object-contain"
+              className="w-full h-auto md:h-[500px] object-contain md:object-cover"
             />
 
           </div>
 
         </div>
 
+        {/* DERECHA */}
         <div className="space-y-6">
 
           <div className="grid grid-cols-2 gap-4">
 
             {/* VALOR */}
-            <div className="bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
-                <p className="text-zinc-500 font-semibold">
-                Valor Ticket
-                </p>
+            <div className="bg-white rounded-3xl p-6 shadow-lg border border-zinc-200">
 
-                <h2 className="text-4xl font-black text-green-600 mt-2">
+              <p className="text-zinc-500 font-semibold">
+                Valor Ticket
+              </p>
+
+              <h2 className="text-5xl font-black text-green-600 mt-2">
                 $30K
-                </h2>
+              </h2>
+
             </div>
 
             {/* SORTEO */}
-            <div className="bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
-                <p className="text-zinc-500 font-semibold">
-                Sorteo
-                </p>
+            <div className="bg-white rounded-3xl p-6 shadow-lg border border-zinc-200">
 
-                <h2 className="text-4xl font-black text-green-600 mt-2">
+              <p className="text-zinc-500 font-semibold">
+                Sorteo
+              </p>
+
+              <h2 className="text-5xl font-black text-yellow-500 mt-2">
                 Hoy
-                </h2>
+              </h2>
+
             </div>
 
-            {/* BARRA LARGA */}
-            <div className="col-span-2 bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
+            {/* BARRA */}
+            <div className="col-span-2 bg-white rounded-3xl p-6 shadow-lg border border-zinc-200">
 
-                <div className="flex justify-between items-center mb-4">
+              <div className="flex justify-between items-center mb-5">
 
                 <h3 className="text-3xl font-black text-black">
-                    Tickets vendidos
+                  Tickets vendidos
                 </h3>
 
-                <span className="text-green-600 font-black text-3xl">
-                    {porcentaje}%
+                <span className="text-yellow-500 font-black text-3xl">
+                  {porcentaje}%
                 </span>
 
-                </div>
+              </div>
 
-                <div className="w-full h-6 bg-zinc-200 rounded-full overflow-hidden">
+              <div className="w-full h-6 bg-zinc-200 rounded-full overflow-hidden">
 
                 <div
-                    className="h-full bg-green-500 transition-all duration-700 rounded-full"
-                    style={{
+                  className="h-full bg-gradient-to-r from-yellow-400 to-orange-500 transition-all duration-700 rounded-full"
+                  style={{
                     width: `${porcentaje}%`,
-                    }}
+                  }}
                 />
 
-                </div>
+              </div>
 
             </div>
 
             {/* MODALIDAD */}
-            <div className="bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
-                <p className="text-zinc-500 font-semibold">
-                Modalidad
-                </p>
+            <div className="bg-white rounded-3xl p-6 shadow-lg border border-zinc-200">
 
-                <h2 className="text-4xl font-black text-green-600 mt-2">
+              <p className="text-zinc-500 font-semibold">
+                Modalidad
+              </p>
+
+              <h2 className="text-4xl font-black text-[#111827] mt-2">
                 Aleatorio
-                </h2>
+              </h2>
+
             </div>
 
             {/* PREMIO */}
-            <div className="bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
-                <p className="text-zinc-500 font-semibold">
+            <div className="bg-white rounded-3xl p-6 shadow-lg border border-zinc-200">
+
+              <p className="text-zinc-500 font-semibold">
                 Premio
-                </p>
+              </p>
 
-                <h2 className="text-3xl font-black text-green-600 mt-2">
+              <h2 className="text-3xl font-black text-[#111827] mt-2">
                 Honda + iPhone
-                </h2>
-            </div>
+              </h2>
 
             </div>
 
-          <div className="bg-[#111827] rounded-3xl p-10 text-center">
+          </div>
 
-            <h2 className="text-6xl font-black text-green-600">
+          {/* PRECIO */}
+          <div className="bg-[#0f172a] rounded-3xl p-10 text-center border border-zinc-800 shadow-2xl">
+
+            <p className="text-yellow-400 font-black uppercase tracking-[4px] mb-4">
+              Precio Oficial
+            </p>
+
+            <h2 className="text-7xl font-black text-yellow-400">
               $10.000
             </h2>
 
-            <p className="text-white mt-2 text-xl font-semibold">
+            <p className="text-white mt-3 text-xl font-semibold">
               POR NÚMERO
             </p>
 
             <a
               href="#packages"
-              className="inline-block mt-6 bg-yellow-500 hover:bg-yellow-400 transition-all text-black font-black px-8 py-4 rounded-2xl text-xl"
+              className="inline-block mt-8 bg-yellow-400 hover:bg-yellow-300 transition-all duration-300 text-black font-black px-10 py-5 rounded-2xl text-xl shadow-xl hover:scale-[1.03]"
             >
               Comprar ahora
             </a>
