@@ -56,7 +56,7 @@ const [seleccionado, setSeleccionado] = useState<any>(null);
                 className={`border-2 transition-all rounded-3xl p-8 cursor-pointer ${
                     seleccionado?.tickets === item.tickets
                     ? "bg-green-500 border-green-500 text-white"
-                    : "border-zinc-300 hover:border-yellow-500 bg-zinc-100"
+                    : "border-zinc-700 hover:border-yellow-500 bg-[#0f172a] text-white"
                 }`}
                 >
                 <h3 className="text-3xl font-black">
