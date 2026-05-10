@@ -87,28 +87,6 @@ async function obtenerPorcentaje() {
                 Hoy
               </h2>
             </div>
-
-            <div className="bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
-              <p className="text-zinc-500 font-semibold">
-                Modalidad
-              </p>
-
-              <h2 className="text-3xl font-black text-green-600 mt-2">
-                Aleatorio
-              </h2>
-            </div>
-
-            <div className="bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
-              <p className="text-zinc-500 font-semibold">
-                Premio
-              </p>
-
-              <h2 className="text-2xl font-black text-green-600 mt-2">
-                Honda + iPhone
-              </h2>
-            </div>
-
-          </div>
                 <div className="bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
 
             <div className="flex justify-between items-center mb-4">
@@ -135,6 +113,29 @@ async function obtenerPorcentaje() {
             </div>
 
             </div>
+
+            <div className="bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
+              <p className="text-zinc-500 font-semibold">
+                Modalidad
+              </p>
+
+              <h2 className="text-3xl font-black text-green-600 mt-2">
+                Aleatorio
+              </h2>
+            </div>
+
+            <div className="bg-white rounded-3xl p-6 shadow-sm border border-zinc-200">
+              <p className="text-zinc-500 font-semibold">
+                Premio
+              </p>
+
+              <h2 className="text-2xl font-black text-green-600 mt-2">
+                Honda + iPhone
+              </h2>
+            </div>
+
+          </div>
+
           <div className="bg-[#111827] rounded-3xl p-10 text-center">
 
             <h2 className="text-6xl font-black text-green-600">
