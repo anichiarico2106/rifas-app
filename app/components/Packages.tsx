@@ -270,14 +270,14 @@ export default function Packages() {
           placeholder="Dirección / Ciudad"
           value={direccion}
           onChange={(e) => setDireccion(e.target.value)}
-          className="border border-zinc-300 bg-zinc-50 rounded-2xl p-4 text-black placeholder:text-zinc-500 font-medium outline-none focus:border-yellow-400 focus:bg-white transition-all" md:col-span-2
+          className="border border-zinc-300 bg-zinc-50 rounded-2xl p-4 text-black placeholder:text-zinc-500 font-medium outline-none focus:border-yellow-400 focus:bg-white transition-all"
         />
 
         <input
           placeholder="Correo electrónico"
           value={correo}
           onChange={(e) => setCorreo(e.target.value)}
-          className="border border-zinc-300 bg-zinc-50 rounded-2xl p-4 text-black placeholder:text-zinc-500 font-medium outline-none focus:border-yellow-400 focus:bg-white transition-all" md:col-span-2
+          className="border border-zinc-300 bg-zinc-50 rounded-2xl p-4 text-black placeholder:text-zinc-500 font-medium outline-none focus:border-yellow-400 focus:bg-white transition-all"
         />
 
       </div>
