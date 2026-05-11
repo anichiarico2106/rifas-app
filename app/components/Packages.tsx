@@ -242,42 +242,42 @@ export default function Packages() {
           placeholder="Nombre"
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
-          className="border border-zinc-300 rounded-2xl p-4"
+          className="border border-zinc-300 bg-zinc-50 rounded-2xl p-4 text-black placeholder:text-zinc-500 font-medium outline-none focus:border-yellow-400 focus:bg-white transition-all"
         />
 
         <input
           placeholder="Apellido"
           value={apellido}
           onChange={(e) => setApellido(e.target.value)}
-          className="border border-zinc-300 rounded-2xl p-4"
+          className="border border-zinc-300 bg-zinc-50 rounded-2xl p-4 text-black placeholder:text-zinc-500 font-medium outline-none focus:border-yellow-400 focus:bg-white transition-all"
         />
 
         <input
           placeholder="Cédula"
           value={cedula}
           onChange={(e) => setCedula(e.target.value)}
-          className="border border-zinc-300 rounded-2xl p-4"
+          className="border border-zinc-300 bg-zinc-50 rounded-2xl p-4 text-black placeholder:text-zinc-500 font-medium outline-none focus:border-yellow-400 focus:bg-white transition-all"
         />
 
         <input
           placeholder="Teléfono"
           value={telefono}
           onChange={(e) => setTelefono(e.target.value)}
-          className="border border-zinc-300 rounded-2xl p-4"
+          className="border border-zinc-300 bg-zinc-50 rounded-2xl p-4 text-black placeholder:text-zinc-500 font-medium outline-none focus:border-yellow-400 focus:bg-white transition-all"
         />
 
         <input
           placeholder="Dirección / Ciudad"
           value={direccion}
           onChange={(e) => setDireccion(e.target.value)}
-          className="border border-zinc-300 rounded-2xl p-4 md:col-span-2"
+          className="border border-zinc-300 bg-zinc-50 rounded-2xl p-4 text-black placeholder:text-zinc-500 font-medium outline-none focus:border-yellow-400 focus:bg-white transition-all" md:col-span-2
         />
 
         <input
           placeholder="Correo electrónico"
           value={correo}
           onChange={(e) => setCorreo(e.target.value)}
-          className="border border-zinc-300 rounded-2xl p-4 md:col-span-2"
+          className="border border-zinc-300 bg-zinc-50 rounded-2xl p-4 text-black placeholder:text-zinc-500 font-medium outline-none focus:border-yellow-400 focus:bg-white transition-all" md:col-span-2
         />
 
       </div>
