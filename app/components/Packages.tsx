@@ -40,12 +40,27 @@ export default function Packages() {
     const [telefono, setTelefono] = useState("");
     const [direccion, setDireccion] = useState("");
     const [correo, setCorreo] = useState("");
+    const [errorFormulario, setErrorFormulario] = useState("");
     async function guardarCompra() {
 
     if (!seleccionado) {
-        alert("Selecciona un paquete");
+        setErrorFormulario("Selecciona un paquete");
         return;
     }
+
+    if (
+        !nombre ||
+        !apellido ||
+        !cedula ||
+        !telefono ||
+        !direccion ||
+        !correo
+    ) {
+        setErrorFormulario("Completa todos los campos");
+        return;
+    }
+
+    setErrorFormulario("");
 
     const { error } = await supabase
         .from("compras")
@@ -65,14 +80,18 @@ export default function Packages() {
 
     if (error) {
         console.log(error);
-        alert("Error guardando compra");
+
+        setErrorFormulario(
+        "Error guardando la información"
+        );
+
         return;
     }
 
-  alert("Datos guardados correctamente");
+    alert("Datos guardados correctamente");
 
-  setMostrarModal(false);
-}
+    setMostrarModal(false);
+    }
 
   return (
     <section
@@ -281,9 +300,19 @@ export default function Packages() {
         />
 
       </div>
+        {errorFormulario && (
 
+        <div className="mt-6 bg-red-100 border border-red-300 text-red-600 rounded-2xl p-4 text-center font-semibold">
+
+            {errorFormulario}
+
+        </div>
+
+        )}
       <button
+      
         onClick={guardarCompra}
+        
         className="w-full mt-8 bg-yellow-400 hover:bg-yellow-300 transition-all text-black py-5 rounded-2xl font-black text-xl"
       >
         Continuar a Wompi →
