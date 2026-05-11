@@ -66,7 +66,7 @@ export default function Hero() {
             <img
               src="/sorteo.png"
               alt="Premio"
-              className="w-full h-auto md:h-[500px] object-contain md:object-cover"
+              className="w-full h-auto max-h-[500px] object-contain"
             />
 
           </div>
