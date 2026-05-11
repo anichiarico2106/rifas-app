@@ -1,5 +1,5 @@
 "use client";
-
+import { supabase } from "../lib/supabase";
 import { useState } from "react";
 
 export default function Packages() {
@@ -32,6 +32,47 @@ export default function Packages() {
   ];
 
   const [seleccionado, setSeleccionado] = useState<any>(null);
+  const [mostrarModal, setMostrarModal] = useState(false);
+
+    const [nombre, setNombre] = useState("");
+    const [apellido, setApellido] = useState("");
+    const [cedula, setCedula] = useState("");
+    const [telefono, setTelefono] = useState("");
+    const [direccion, setDireccion] = useState("");
+    const [correo, setCorreo] = useState("");
+    async function guardarCompra() {
+
+    if (!seleccionado) {
+        alert("Selecciona un paquete");
+        return;
+    }
+
+    const { error } = await supabase
+        .from("compras")
+        .insert([
+        {
+            nombre,
+            apellido,
+            cedula,
+            telefono,
+            direccion,
+            correo,
+            tickets: seleccionado.tickets,
+            numeros: seleccionado.numeros,
+            valor: seleccionado.valor,
+        },
+        ]);
+
+    if (error) {
+        console.log(error);
+        alert("Error guardando compra");
+        return;
+    }
+
+  alert("Datos guardados correctamente");
+
+  setMostrarModal(false);
+}
 
   return (
     <section
@@ -159,9 +200,12 @@ export default function Packages() {
           </div>
 
 
-          <button className="w-full mt-8 bg-yellow-400 hover:bg-yellow-300 transition-all text-black py-5 rounded-2xl font-black text-xl shadow-lg hover:scale-[1.02]">
+            <button
+            onClick={() => setMostrarModal(true)}
+            className="w-full mt-8 bg-yellow-400 hover:bg-yellow-300 transition-all text-black py-5 rounded-2xl font-black text-xl shadow-lg hover:scale-[1.02]"
+            >
             Pagar ahora →
-          </button>
+            </button>
 
           <div className="mt-8 pt-6 border-t border-zinc-700">
 
@@ -182,7 +226,81 @@ export default function Packages() {
         </div>
 
       </div>
+        {mostrarModal && (
 
+  <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-6">
+
+    <div className="bg-white rounded-3xl p-8 max-w-2xl w-full">
+
+      <h2 className="text-4xl font-black text-black mb-8">
+        Completa tus datos
+      </h2>
+
+      <div className="grid md:grid-cols-2 gap-4">
+
+        <input
+          placeholder="Nombre"
+          value={nombre}
+          onChange={(e) => setNombre(e.target.value)}
+          className="border border-zinc-300 rounded-2xl p-4"
+        />
+
+        <input
+          placeholder="Apellido"
+          value={apellido}
+          onChange={(e) => setApellido(e.target.value)}
+          className="border border-zinc-300 rounded-2xl p-4"
+        />
+
+        <input
+          placeholder="Cédula"
+          value={cedula}
+          onChange={(e) => setCedula(e.target.value)}
+          className="border border-zinc-300 rounded-2xl p-4"
+        />
+
+        <input
+          placeholder="Teléfono"
+          value={telefono}
+          onChange={(e) => setTelefono(e.target.value)}
+          className="border border-zinc-300 rounded-2xl p-4"
+        />
+
+        <input
+          placeholder="Dirección / Ciudad"
+          value={direccion}
+          onChange={(e) => setDireccion(e.target.value)}
+          className="border border-zinc-300 rounded-2xl p-4 md:col-span-2"
+        />
+
+        <input
+          placeholder="Correo electrónico"
+          value={correo}
+          onChange={(e) => setCorreo(e.target.value)}
+          className="border border-zinc-300 rounded-2xl p-4 md:col-span-2"
+        />
+
+      </div>
+
+      <button
+        onClick={guardarCompra}
+        className="w-full mt-8 bg-yellow-400 hover:bg-yellow-300 transition-all text-black py-5 rounded-2xl font-black text-xl"
+      >
+        Continuar a Wompi →
+      </button>
+
+      <button
+        onClick={() => setMostrarModal(false)}
+        className="w-full mt-4 text-zinc-500 font-semibold"
+      >
+        Cancelar
+      </button>
+
+    </div>
+
+  </div>
+
+)}
     </section>
   );
 }

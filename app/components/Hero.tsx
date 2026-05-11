@@ -51,7 +51,7 @@ export default function Hero() {
               ¡GANA UNA
             </h1>
 
-            <h1 className="text-6xl font-black text-yellow-500 leading-tight">
+            <h1 className="text-6xl font-black text-[#111827] leading-tight">
               HONDA PCX 160!
             </h1>
 
