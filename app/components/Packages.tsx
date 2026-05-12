@@ -193,13 +193,24 @@ export default function Packages() {
 
               <div
                 key={item.tickets}
-                onClick={() => setSeleccionado(item)}
-                className={`rounded-3xl p-5 cursor-pointer border-2 transition-all duration-300 shadow-xl ${
-                  seleccionado?.tickets ===
-                  item.tickets
-                    ? "bg-yellow-400 border-yellow-400 text-black scale-[1.02]"
-                    : "bg-[#111827] border-zinc-700 text-white hover:border-yellow-400"
-                }`}
+
+                onClick={() => {
+                  setSeleccionado(item);
+                }}
+
+                onDoubleClick={() => {
+
+                  setSeleccionado(item);
+
+                  const resumen =
+                    document.getElementById("resumenCompra");
+
+                  resumen?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+
+                }}
               >
 
                 <div className="flex items-center gap-4">
@@ -246,7 +257,10 @@ export default function Packages() {
           </div>
 
           {/* RESUMEN */}
-          <div className="bg-[#111827] rounded-3xl p-4 md:p-6 border border-zinc-700 h-fit sticky top-28">
+            <div
+              id="resumenCompra"
+              className="bg-[#111827] rounded-3xl"
+            >
 
             <h3 className="text-2xl md:text-4xl font-black text-white mb-8">
               Tu compra
