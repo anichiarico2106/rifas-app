@@ -160,7 +160,7 @@ export default function Packages() {
       >
 
         {/* HEADER */}
-        <div className="sticky top-0 bg-[#0f172a] border-b border-zinc-800 p-6 flex justify-between items-center z-20">
+        <div className="sticky top-0 bg-[#0f172a] border-b border-zinc-800 p-4 md:p-6 flex justify-between items-center z-20">
 
           <div>
 
@@ -168,7 +168,7 @@ export default function Packages() {
               Checkout
             </p>
 
-            <h2 className="text-4xl font-black text-white">
+            <h2 className="text-2xl md:text-4xl font-black text-white">
               Elige tu pase
             </h2>
 
@@ -176,7 +176,7 @@ export default function Packages() {
 
           <button
             onClick={() => setAbierto(false)}
-            className="text-white text-4xl"
+            className="text-white text-2xl md:text-4xl"
           >
             ×
           </button>
@@ -184,7 +184,7 @@ export default function Packages() {
         </div>
 
         {/* CONTENIDO */}
-        <div className="p-6 grid lg:grid-cols-2 gap-6">
+        <div className="p-4 md:p-6 grid lg:grid-cols-2 gap-4 md:p-6">
 
           {/* PAQUETES */}
           <div className="space-y-4">
@@ -246,9 +246,9 @@ export default function Packages() {
           </div>
 
           {/* RESUMEN */}
-          <div className="bg-[#111827] rounded-3xl p-6 border border-zinc-700 h-fit sticky top-28">
+          <div className="bg-[#111827] rounded-3xl p-4 md:p-6 border border-zinc-700 h-fit sticky top-28">
 
-            <h3 className="text-4xl font-black text-white mb-8">
+            <h3 className="text-2xl md:text-4xl font-black text-white mb-8">
               Tu compra
             </h3>
 
@@ -318,7 +318,7 @@ export default function Packages() {
       {/* MODAL */}
       {mostrarModal && (
 
-        <div className="fixed inset-0 bg-black/70 z-[100] flex items-center justify-center p-6">
+        <div className="fixed inset-0 bg-black/70 z-[100] flex items-center justify-center p-4 md:p-6">
 
           <div className="bg-white rounded-3xl p-5 md:p-8 w-full max-w-2xl w-full">
 
