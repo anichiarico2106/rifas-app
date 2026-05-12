@@ -175,13 +175,16 @@ export default function Hero() {
               POR NÚMERO
             </p>
 
-            <a
-              href="#packages"
-              className="inline-block mt-8 bg-yellow-400 hover:bg-yellow-300 transition-all duration-300 text-black font-black px-10 py-5 rounded-2xl text-xl shadow-xl hover:scale-[1.03]"
+            <button
+              onClick={() => {
+                window.dispatchEvent(
+                  new Event("abrirCheckout")
+                );
+              }}
+              className="inline-block mt-6 bg-yellow-500 hover:bg-yellow-400 transition-all text-black font-black px-8 py-4 rounded-2xl text-xl"
             >
               Comprar ahora
-            </a>
-
+            </button>
           </div>
 
         </div>

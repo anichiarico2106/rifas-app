@@ -1,12 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
 
 export default function Packages() {
 
   const [abierto, setAbierto] = useState(false);
+    useEffect(() => {
 
+    const abrir = () => {
+      setAbierto(true);
+    };
+
+    window.addEventListener(
+      "abrirCheckout",
+      abrir
+    );
+
+    return () => {
+      window.removeEventListener(
+        "abrirCheckout",
+        abrir
+      );
+    };
+
+  }, []);
+  
   const paquetes = [
     {
       tickets: 1,
@@ -119,17 +138,7 @@ export default function Packages() {
 
     <>
 
-      {/* BOTON ABRIR */}
-      <div className="flex justify-center py-20">
 
-        <button
-          onClick={() => setAbierto(true)}
-          className="bg-yellow-400 hover:bg-yellow-300 transition-all text-black px-12 py-6 rounded-3xl font-black text-2xl shadow-2xl hover:scale-[1.03]"
-        >
-          Comprar ahora
-        </button>
-
-      </div>
 
       {/* OVERLAY */}
       <div
