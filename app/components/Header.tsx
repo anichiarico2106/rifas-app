@@ -32,7 +32,7 @@ export default function Header() {
               new Event("abrirCheckout")
             );
           }}
-          className="bg-yellow-500 hover:bg-yellow-400 transition-all text-black px-4 py-2 rounded-xl font-bold text-sm"
+          className="bg-yellow-500 hover:bg-yellow-400 transition-all text-black px-3 py-2 md:px-4 rounded-xl font-bold text-sm"
         >
           Comprar Tickets
         </button>

@@ -48,11 +48,11 @@ export default function Hero() {
               Sorteo Premium
             </p>
 
-            <h1 className="text-6xl font-black text-[#111827] leading-tight">
+            <h1 className="text-4xl md:text-6xl font-black text-[#111827] leading-tight">
               ¡GANA UNA
             </h1>
 
-            <h1 className="text-6xl font-black text-[#111827] leading-tight">
+            <h1 className="text-4xl md:text-6xl font-black text-[#111827] leading-tight">
               HONDA PCX 160!
             </h1>
 
@@ -62,7 +62,7 @@ export default function Hero() {
             Participa ahora y recibe números totalmente aleatorios.
           </p>
 
-          <div className="bg-[#0f172a] rounded-3xl overflow-hidden shadow-2xl mt-8 border border-zinc-800">
+          <div className="bg-[#0f172a] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl mt-8 border border-zinc-800">
 
             <img
               src="/sorteo.png"
@@ -77,36 +77,36 @@ export default function Hero() {
         {/* DERECHA */}
         <div className="space-y-6">
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
             {/* VALOR */}
-            <div className="bg-white rounded-3xl p-6 shadow-lg border border-zinc-200">
+            <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-lg border border-zinc-200">
 
               <p className="text-zinc-500 font-semibold">
                 Valor Ticket
               </p>
 
-              <h2 className="text-5xl font-black text-green-600 mt-2">
+              <h2 className="text-3xl md:text-5xl font-black text-green-600 mt-2">
                 $30K
               </h2>
 
             </div>
 
             {/* SORTEO */}
-            <div className="bg-white rounded-3xl p-6 shadow-lg border border-zinc-200">
+            <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-lg border border-zinc-200">
 
               <p className="text-zinc-500 font-semibold">
                 Sorteo
               </p>
 
-              <h2 className="text-5xl font-black text-yellow-500 mt-2">
+              <h2 className="text-3xl md:text-5xl font-black text-yellow-500 mt-2">
                 Hoy
               </h2>
 
             </div>
 
             {/* BARRA */}
-            <div className="col-span-2 bg-white rounded-3xl p-6 shadow-lg border border-zinc-200">
+            <div className="col-span-2 bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-lg border border-zinc-200">
 
               <div className="flex justify-between items-center mb-5">
 
@@ -134,20 +134,20 @@ export default function Hero() {
             </div>
 
             {/* MODALIDAD */}
-            <div className="bg-white rounded-3xl p-6 shadow-lg border border-zinc-200">
+            <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-lg border border-zinc-200">
 
               <p className="text-zinc-500 font-semibold">
                 Modalidad
               </p>
 
-              <h2 className="text-4xl font-black text-yellow-500 mt-2">
+              <h2 className="text-2xl md:text-4xl font-black text-yellow-500 mt-2">
                 Aleatorio
               </h2>
 
             </div>
 
             {/* PREMIO */}
-            <div className="bg-white rounded-3xl p-6 shadow-lg border border-zinc-200">
+            <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-lg border border-zinc-200">
 
               <p className="text-zinc-500 font-semibold">
                 Premio
@@ -162,7 +162,7 @@ export default function Hero() {
           </div>
 
           {/* PRECIO */}
-          <div className="bg-[#0f172a] rounded-3xl p-10 text-center border border-zinc-800 shadow-2xl">
+          <div className="bg-[#0f172a] rounded-2xl md:rounded-3xl p-10 text-center border border-zinc-800 shadow-2xl">
 
             <p className="text-yellow-400 font-black uppercase tracking-[4px] mb-4">
               Precio Oficial

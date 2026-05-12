@@ -25,7 +25,7 @@ export default function Packages() {
     };
 
   }, []);
-  
+
   const paquetes = [
     {
       tickets: 1,
@@ -152,7 +152,7 @@ export default function Packages() {
 
       {/* PANEL */}
       <div
-        className={`fixed top-0 right-0 h-screen w-full lg:w-[900px] bg-[#0f172a] z-50 shadow-2xl transition-all duration-500 overflow-y-auto ${
+        className={`fixed top-0 right-0 h-screen w-full md:w-[700px] lg:w-[900px] bg-[#0f172a] z-50 shadow-2xl transition-all duration-500 overflow-y-auto ${
           abierto
             ? "translate-x-0"
             : "translate-x-full"
@@ -213,7 +213,7 @@ export default function Packages() {
 
                   <div className="flex-1">
 
-                    <h3 className="text-2xl font-black leading-tight">
+                    <h3 className="text-lg md:text-2xl font-black leading-tight">
                       {item.nombre}
                     </h3>
 
@@ -222,7 +222,7 @@ export default function Packages() {
                     </p>
 
                     <p
-                      className={`mt-3 text-2xl font-black ${
+                      className={`mt-3 text-lg md:text-2xl font-black ${
                         seleccionado?.tickets ===
                         item.tickets
                           ? "text-black"
@@ -282,7 +282,7 @@ export default function Packages() {
 
               </div>
 
-              <div className="flex justify-between p-5 text-white text-2xl font-black">
+              <div className="flex justify-between p-5 text-white text-lg md:text-2xl font-black">
 
                 <span>
                   Total
@@ -320,13 +320,13 @@ export default function Packages() {
 
         <div className="fixed inset-0 bg-black/70 z-[100] flex items-center justify-center p-6">
 
-          <div className="bg-white rounded-3xl p-8 max-w-2xl w-full">
+          <div className="bg-white rounded-3xl p-5 md:p-8 w-full max-w-2xl w-full">
 
             <h2 className="text-5xl font-black text-black mb-8">
               Completa tus datos
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
               <input
                 placeholder="Nombre"
