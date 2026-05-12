@@ -152,7 +152,7 @@ export default function Packages() {
 
       {/* PANEL */}
       <div
-        className={`fixed top-0 right-0 h-screen w-full md:w-[700px] lg:w-[900px] bg-[#0f172a] z-50 shadow-2xl transition-all duration-500 overflow-y-auto ${
+        className={`fixed top-0 right-0 h-dvh w-full md:w-[700px] lg:w-[900px] bg-[#0f172a] z-50 shadow-2xl transition-all duration-500 overflow-y-auto ${
           abierto
             ? "translate-x-0"
             : "translate-x-full"
@@ -195,12 +195,12 @@ export default function Packages() {
                 key={item.tickets}
 
                 onClick={() => {
+
                   setSeleccionado(item);
+
                 }}
 
                 onDoubleClick={() => {
-
-                  setSeleccionado(item);
 
                   const resumen =
                     document.getElementById("resumenCompra");
