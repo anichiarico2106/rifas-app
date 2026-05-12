@@ -88,7 +88,6 @@ export default function Packages() {
         return;
     }
 
-    alert("Datos guardados correctamente");
 
     setMostrarModal(false);
     }
