@@ -62,32 +62,32 @@ export default function Packages() {
 
     setErrorFormulario("");
 
-    const { error } = await supabase
-        .from("compras")
-        .insert([
-        {
-            nombre,
-            apellido,
-            cedula,
-            telefono,
-            direccion,
-            correo,
-            tickets: seleccionado.tickets,
-            numeros: seleccionado.numeros,
-            valor: seleccionado.valor,
-        },
-        ]);
+    const response = await fetch("/api/comprar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nombre,
+        apellido,
+        cedula,
+        telefono,
+        direccion,
+        correo,
+        paquete: seleccionado,
+      }),
+    });
 
-    if (error) {
-        console.log(error);
+    const data = await response.json();
 
-        setErrorFormulario(
-        "Error guardando la información"
-        );
+    if (!response.ok) {
 
-        return;
+      setErrorFormulario(
+        data.error || "Error guardando compra"
+      );
+
+      return;
     }
-
 
     setMostrarModal(false);
     }
