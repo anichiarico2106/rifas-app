@@ -189,71 +189,85 @@ export default function Packages() {
           {/* PAQUETES */}
           <div className="space-y-4">
 
-            {paquetes.map((item) => (
+          {paquetes.map((item) => (
 
-              <div
-                key={item.tickets}
+            <div
+              key={item.tickets}
 
-                onClick={() => {
+              onClick={() => {
+                setSeleccionado(item);
+              }}
 
-                  setSeleccionado(item);
+              onDoubleClick={() => {
 
-                }}
+                const resumen =
+                  document.getElementById("resumenCompra");
 
-                onDoubleClick={() => {
+                resumen?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
 
-                  const resumen =
-                    document.getElementById("resumenCompra");
+              }}
 
-                  resumen?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                  });
+              className={`rounded-3xl p-5 cursor-pointer border-2 transition-all duration-300 shadow-xl ${
+                seleccionado?.tickets === item.tickets
+                  ? "bg-yellow-400 border-yellow-400 text-black scale-[1.02]"
+                  : "bg-[#111827] border-zinc-700 text-white hover:border-yellow-400"
+              }`}
+            >
 
-                }}
-              >
+              <div className="flex items-center gap-4">
 
-                <div className="flex items-center gap-4">
+                {/* PLACEHOLDER */}
+                <img
+                  src="/sorteo.png"
+                  alt="ticket"
+                  className="w-20 h-20 rounded-2xl object-cover"
+                />
 
-                  {/* PLACEHOLDER */}
-                  <img
-                    src="/sorteo.png"
-                    alt="ticket"
-                    className="w-20 h-20 rounded-2xl object-cover"
-                  />
+                <div className="flex-1">
 
-                  <div className="flex-1">
+                  <h3
+                    className={`text-lg md:text-2xl font-black leading-tight ${
+                      seleccionado?.tickets === item.tickets
+                        ? "text-black"
+                        : "text-white"
+                    }`}
+                  >
+                    {item.nombre}
+                  </h3>
 
-                    <h3 className="text-lg md:text-2xl font-black leading-tight">
-                      {item.nombre}
-                    </h3>
+                  <p
+                    className={`font-semibold mt-1 ${
+                      seleccionado?.tickets === item.tickets
+                        ? "text-black"
+                        : "text-zinc-300"
+                    }`}
+                  >
+                    {item.numeros} números
+                  </p>
 
-                    <p className="font-semibold mt-1">
-                      {item.numeros} números
-                    </p>
-
-                    <p
-                      className={`mt-3 text-lg md:text-2xl font-black ${
-                        seleccionado?.tickets ===
-                        item.tickets
-                          ? "text-black"
-                          : "text-yellow-400"
-                      }`}
-                    >
-                      $
-                      {item.valor.toLocaleString(
-                        "es-CO"
-                      )}
-                    </p>
-
-                  </div>
+                  <p
+                    className={`mt-3 text-lg md:text-2xl font-black ${
+                      seleccionado?.tickets === item.tickets
+                        ? "text-black"
+                        : "text-yellow-400"
+                    }`}
+                  >
+                    $
+                    {item.valor.toLocaleString(
+                      "es-CO"
+                    )}
+                  </p>
 
                 </div>
 
               </div>
 
-            ))}
+            </div>
 
+          ))}
           </div>
 
           {/* RESUMEN */}
